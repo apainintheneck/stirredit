@@ -7,13 +7,16 @@
   <link rel="stylesheet" href="css/sp.css">
 </head>
   <body>
-    <h1>stirred it</h1>
+    <a href="/"><h1>stirred it</h1></a>
     <hr>
     <h1>feedname</h1>
     <p>
       Feed Description
     </p>
+    <hr>
     <div id="results"></div>
     <%- include('partials/footer.ejs') %>
+    <script type="module" src="js/reddit-api.js"></script>
+    <script type="module" src="js/app.js"></script>
   </body>
 </html>
