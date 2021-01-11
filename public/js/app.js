@@ -1,6 +1,8 @@
 import reddit from './reddit-api.js';
 
-searchReddit("tech", "10", "hot"); //Shows latest news when the page is first loaded.
+searchReddit(getSubreddit("subreddit1"), "10", "results1");
+setTimeout(() => {  searchReddit(getSubreddit("subreddit2"), "10", "results2"); }, 500);
+setTimeout(() => {  searchReddit(getSubreddit("subreddit3"), "10", "results3"); }, 1000);
 
 // Truncate String Function
 function truncateString(myString, limit) {
@@ -10,9 +12,9 @@ function truncateString(myString, limit) {
 }
 
 // Search reddit and update results.
-function searchReddit(searchTerm, searchLimit, sortBy){
+function searchReddit(subreddit, postLimit, resultDiv){
   // Search Reddit
-  reddit.search(searchTerm, searchLimit, sortBy).then(results => {
+  reddit.search(subreddit, postLimit).then(results => {
     let output = '';
     console.log(results); // testing
     results.forEach(post => {
@@ -25,7 +27,11 @@ function searchReddit(searchTerm, searchLimit, sortBy){
       `;
     });
 
-    document.getElementById('results').innerHTML = output;
-
+    document.getElementById(resultDiv).innerHTML = output;
   });
+}
+
+function getSubreddit(linkId){
+  let url = document.getElementById(linkId).href;
+  return url.split("/")[4];
 }

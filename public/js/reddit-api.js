@@ -1,8 +1,8 @@
 export default {
-  search: function(searchTerm, searchLimit, sortBy) {
-    /*global fetch*/  
+  search: function(subreddit, postLimit) {
+    /*global fetch*/
     return fetch(
-      `https://www.reddit.com/search.json?q=${searchTerm}&sort=${sortBy}&limit=${searchLimit}`
+      `https://www.reddit.com/r/${subreddit}/hot.json?limit=${postLimit}`
     )
       .then(res => res.json())
       .then(data => {
