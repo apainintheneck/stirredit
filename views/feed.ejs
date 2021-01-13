@@ -7,17 +7,17 @@
   <link rel="stylesheet" href="css/sp.css">
 </head>
   <body>
-    <a href="/"><h1>stirred it</h1></a>
+    <h1><a href="/">stirred it</a> - <a href="/?feed=<%= feedName %>"><%= feedName %></a></h1>
     <hr>
-    <a id="subreddit1" href="https://www.reddit.com/r/<%= subreddit1 %>/hot/" target="_blank"><h1>/r/<%= subreddit1 %></h1></a>
+    <h1><a id="subreddit1" href="https://www.reddit.com/r/<%= subreddit1 %>/hot/" target="_blank">/r/<%= subreddit1 %></a></h1>
     <hr>
     <div id="results1"></div>
     <hr>
-    <a id="subreddit2" href="https://www.reddit.com/r/<%= subreddit2 %>/hot/" target="_blank"><h1>/r/<%= subreddit2 %></h1></a>
+    <h1><a id="subreddit2" href="https://www.reddit.com/r/<%= subreddit2 %>/hot/" target="_blank">/r/<%= subreddit2 %></a></h1>
     <hr>
     <div id="results2"></div>
     <hr>
-    <a id="subreddit3" href="https://www.reddit.com/r/<%= subreddit3 %>/hot/" target="_blank"><h1>/r/<%= subreddit3 %></h1></a>
+    <h1><a id="subreddit3" href="https://www.reddit.com/r/<%= subreddit3 %>/hot/" target="_blank">/r/<%= subreddit3 %></a></h1>
     <hr>
     <div id="results3"></div>
     <%- include('partials/footer.ejs') %>

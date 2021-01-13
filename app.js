@@ -6,12 +6,15 @@ app.use(express.static("public"));
 
 //routes
 app.get("/", function(req, res){
+  if(req.query.feed){
+    if(req.query.feed == "NBA"){
+      res.render("feed", {"feedName": "NBA", "subreddit1": "warriors", "subreddit2": "nbadiscussion", "subreddit3": "NBA_Draft"});
+    } else {
+      res.render("index", {"searchError": true, "searchInput": req.query.feed});
+    }
+  } else {
     res.render("index");
-});//"/"
-
-//routes
-app.get("/feed", function(req, res){
-    res.render("feed", {"feedName": "NBA", "subreddit1": "warriors", "subreddit2": "nbadiscussion", "subreddit3": "NBA_Draft"});
+  }
 });//"/"
 
 //starting server
