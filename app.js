@@ -11,7 +11,7 @@ app.get("/", function(req, res){
 
 //routes
 app.get("/feed", function(req, res){
-    res.render("feed");
+    res.render("feed", {"feedName": "NBA", "subreddit1": "warriors", "subreddit2": "nbadiscussion", "subreddit3": "NBA_Draft"});
 });//"/"
 
 //starting server
