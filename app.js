@@ -10,7 +10,7 @@ app.get("/", function(req, res){
     if(req.query.feed == "NBA"){
       res.render("feed", {"feedName": "NBA", "subreddit1": "warriors", "subreddit2": "nbadiscussion", "subreddit3": "NBA_Draft"});
     } else {
-      res.render("index", {"searchError": true, "searchInput": req.query.feed});
+      res.render("index", {"errorMsg": `Unable to find feed: ${req.query.feed}`});
     }
   } else {
     res.render("index");
