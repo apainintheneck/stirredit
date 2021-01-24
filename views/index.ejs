@@ -7,31 +7,31 @@
   <link rel="stylesheet" href="css/sp.css">
 </head>
   <body>
-    <h1 class="top-title"><a href="/">stirred it</a></h1>
+    <h1><a href="/">stirred it</a></h1>
     <hr>
     <% if(typeof errorMsg != 'undefined'){ %>
-      <div class="error-box"><h2><%= errorMsg %></h2></div>
+      <div class="error-box"><h3><%= errorMsg %></h3></div>
     <% } %>
     <p>
       This site allows you to create custom feeds of 3 public subreddits.<br> Those feeds can be shared and accessed from any browser.
     </p>
     <p>
       <h1>find</h1>
-      <form class="dark-bg">
-        <input type="text" name="feed" required></input>
-        <button type="submit">Search</button>
+      <form class="dark-box">
+        <input type="text" name="feed" placeholder="Search for a feed..." required></input>
+        <button type="submit">Find</button>
       </form>
     </p>
     <p>
       <h1>create</h1>
-      <details class="dark-bg">
+      <details class="dark-box">
         <summary>Create a new feed.</summary>
         <form>
-          <input type="text" name="feedname" required></input><br>
-          <input type="text" name="sub1" required></input><br>
-          <input type="text" name="sub2" required></input><br>
-          <input type="text" name="sub3" required></input><br>
-          <button type="submit">Search</button>
+          <input class="create" type="text" name="feedname" placeholder="Enter a feed name..." required></input><br>
+          <input class="create" type="text" name="sub1" placeholder="Enter a subreddit..." required></input><br>
+          <input class="create" type="text" name="sub2" placeholder="Enter a subreddit..." required></input><br>
+          <input class="create" type="text" name="sub3" placeholder="Enter a subreddit..." required></input><br>
+          <button type="submit">Create</button>
         </form>
       </details>
     </p>

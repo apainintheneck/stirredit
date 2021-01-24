@@ -46,7 +46,7 @@ figcaption {
   text-align: center;
   color: #c90;
 }
-.dark-bg {
+.dark-box {
   margin-bottom: 5px;
   margin-top: 5px;
   padding: 15px;
@@ -56,6 +56,31 @@ figcaption {
 }
 details>summary {
   font-size: 1.2em;
+}
+button[type=submit], input {
+  display: inline-block;;
+  margin: 4px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: none;
+  padding: 6px;
+  padding-right: 13px;
+  padding-left: 13px;
+  font-size: 1.1em;
+}
+input {
+  background-color: white;
+  color: #111;
+}
+input.create {
+  min-width: 50%;
+}
+button[type=submit] {
+  background-color: #444;
+  color: white;
+}
+button[type=submit]:hover {
+  background-color: #555;
 }
 @media (prefers-color-scheme: dark) {
   body {
@@ -81,7 +106,22 @@ details>summary {
     border-color: #fd9;
     color: #fd9;
   }
-  .dark-bg {
+  .dark-box {
     background: #111;
+  }
+  input {
+    background-color: #d4d4d4;
+    color: #111;
+  }
+  input::placeholder {
+    color: #333;
+    opacity: 1;
+  }
+  button[type=submit] {
+    background-color: #333;
+    color: #ccc;
+  }
+  button[type=submit]:hover {
+    background-color: #444;
   }
 }
