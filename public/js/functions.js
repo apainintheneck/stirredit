@@ -16,16 +16,24 @@ function searchReddit(subreddit, postLimit, resultDiv){
   // Search Reddit
   reddit.search(subreddit, postLimit).then(results => {
     let output = '';
-    console.log(results); // testing
-    results.forEach(post => {
+    if(results) {
+      console.log(results); // testing
+      results.forEach(post => {
+        output += `
+        <article>
+          <a href="${post.url}" target="_blank">
+            <h3>${truncateString(post.title, 100)}</h3>
+          </a>
+        </article>
+        `;
+      });
+    } else {
       output += `
-      <article>
-        <a href="${post.url}" target="_blank">
-          <h3>${truncateString(post.title, 100)}</h3>
-        </a>
-      </article>
+      <div class="error-box">
+        <h3>Unable to display nonexistent or private subreddit.</h3>
+      </div>
       `;
-    });
+    }
 
     document.getElementById(resultDiv).innerHTML = output;
   });

@@ -16,7 +16,7 @@ app.get("/", function(req, res){
     let sqlParams = [req.query.feed];
 
     pool.query(sql, sqlParams, function (err, rows, fields){
-      console.log(rows); //testing
+      // console.log(rows); //testing
       if(err || rows.length == 0){
         console.log(err);
         res.render("index", {"errorMsg": `Unable to find feed: ${req.query.feed}`});
@@ -30,7 +30,7 @@ app.get("/", function(req, res){
 });
 
 app.post("/", function(req, res){
-  console.log(req.body); //testing
+  // console.log(req.body); //testing
 
   let sql = "INSERT INTO feeds (name, sub1, sub2, sub3) VALUES (?,?,?,?)";
   let sqlParams = [req.body.feedname, req.body.sub1, req.body.sub2, req.body.sub3];
