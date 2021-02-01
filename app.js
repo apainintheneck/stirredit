@@ -16,12 +16,12 @@ app.get("/", function(req, res){
     let sqlParams = [req.query.feed];
 
     pool.query(sql, sqlParams, function (err, rows, fields){
-      if(err){
+      console.log(rows); //testing
+      if(err || rows.length == 0){
         console.log(err);
         res.render("index", {"errorMsg": `Unable to find feed: ${req.query.feed}`});
       } else {
-        console.log(rows); //testing
-        res.render("feed", {"feedName": rows.name, "subreddit1": rows.sub1, "subreddit2": rows.sub2, "subreddit3": rows.sub3});
+        res.render("feed", {"feedName": rows[0].name, "subreddit1": rows[0].sub1, "subreddit2": rows[0].sub2, "subreddit3": rows[0].sub3});
       }
     });
   } else {
@@ -32,7 +32,7 @@ app.get("/", function(req, res){
 app.post("/", function(req, res){
   console.log(req.body); //testing
 
-  let sql = "INSERT INTO posts (name, sub1, sub2, sub3) VALUES (?,?,?,?)";
+  let sql = "INSERT INTO feeds (name, sub1, sub2, sub3) VALUES (?,?,?,?)";
   let sqlParams = [req.body.feedname, req.body.sub1, req.body.sub2, req.body.sub3];
 
   //Query database to insert post.
