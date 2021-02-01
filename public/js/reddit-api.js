@@ -1,5 +1,5 @@
 export default {
-  search: function(subreddit, postLimit) {
+  getPosts: function(subreddit, postLimit) {
     /*global fetch*/
     return fetch(
       `https://www.reddit.com/r/${subreddit}/hot.json?limit=${postLimit}`
